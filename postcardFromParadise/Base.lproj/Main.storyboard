@@ -42,6 +42,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="tw5-QZ-hUO" id="gET-bc-wFD"/>
+                                    <outlet property="delegate" destination="tw5-QZ-hUO" id="r4D-fD-LGt"/>
+                                </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XYL-v0-4pD">
                                 <rect key="frame" x="19.5" y="171.5" width="281" height="225"/>
@@ -66,6 +70,10 @@
                         <viewLayoutGuide key="safeArea" id="OZA-HM-Udp"/>
                     </view>
                     <navigationItem key="navigationItem" id="3Ba-Y0-yt4"/>
+                    <connections>
+                        <outlet property="colorCollectionView" destination="j6A-e9-iMe" id="XFs-iM-omR"/>
+                        <outlet property="postcardImageView" destination="XYL-v0-4pD" id="kGh-0m-x8I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xoi-vb-2P6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
