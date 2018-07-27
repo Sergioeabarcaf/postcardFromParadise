@@ -9,14 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UITableViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
-    }
 
     @IBOutlet weak var postcardImageView: UIImageView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
@@ -29,6 +21,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UITableViewD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
     }
 
 
