@@ -57,14 +57,22 @@
 			isa = PBXGroup;
 			children = (
 				062782B321089D720066DC28 /* AppDelegate.swift */,
-				062782B521089D720066DC28 /* ViewController.swift */,
+				062782C8210B7E910066DC28 /* Controllers */,
 				062782B721089D720066DC28 /* Main.storyboard */,
-				062782C521089E680066DC28 /* FontsTableViewController.swift */,
 				062782BA21089D740066DC28 /* Assets.xcassets */,
 				062782BC21089D740066DC28 /* LaunchScreen.storyboard */,
 				062782BF21089D740066DC28 /* Info.plist */,
 			);
 			path = postcardFromParadise;
+			sourceTree = "<group>";
+		};
+		062782C8210B7E910066DC28 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				062782B521089D720066DC28 /* ViewController.swift */,
+				062782C521089E680066DC28 /* FontsTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
