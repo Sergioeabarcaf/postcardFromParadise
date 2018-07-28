@@ -13,9 +13,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UITableViewD
     @IBOutlet weak var postcardImageView: UIImageView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
     
+    var colors = [UIColor]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.colors += [.black, .gray, .white, .red, .orange, .yellow, .green, .cyan, .blue, .purple, .magenta]
+        
+        for hue in 0...9 {
+            for sat in 1...10{
+                let color = UIColor(hue: CGFloat(hue)/10, saturation: CGFloat(sat)/10, brightness: 1, alpha: 1)
+                self.colors.append(color)
+            }
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,12 +33,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Collection View Data Source
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         <#code#>
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         <#code#>
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
 
 
