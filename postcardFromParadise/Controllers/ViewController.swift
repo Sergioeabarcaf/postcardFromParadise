@@ -36,11 +36,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UITableViewD
     // MARK: Collection View Data Source
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return self.colors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath)
+        
+        let color = self.colors[indexPath.row]
+        cell.backgroundColor = color
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 5
+        
+        return cell
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
