@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="844" y="460.11994002998506"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Fuentes disponibles-->
         <scene sceneID="AWT-dy-oNd">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="AmF-Ii-F2H" customClass="FontsTableViewController" customModule="postcardFromParadise" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,7 +95,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TJ1-eE-doE">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="TJ1-eE-doE">
                                             <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -111,7 +111,7 @@
                             <outlet property="delegate" destination="AmF-Ii-F2H" id="Q05-hw-Yf7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="nVP-TV-Buk"/>
+                    <navigationItem key="navigationItem" title="Fuentes disponibles" id="nVP-TV-Buk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lpa-Gg-3rf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
