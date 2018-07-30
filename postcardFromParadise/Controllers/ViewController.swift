@@ -14,6 +14,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UITableViewD
     @IBOutlet weak var colorCollectionView: UICollectionView!
     
     var colors = [UIColor]()
+    var image : UIImage?
+    var topText = "Bienvenido a iOS 11"
+    var bottomText = "El mejor curso lanzado a la fecha."
+    var topFontName = "Avenir Next"
+    var bottomFontName = "Avenir Next"
+    var topFontColor = UIColor.white
+    var bottomFontColor = UIColor.white
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +32,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UITableViewD
                 self.colors.append(color)
             }
         }
+        
+        self.renderPostcard()
 
     }
 
@@ -52,6 +61,39 @@ class ViewController: UIViewController, UICollectionViewDataSource, UITableViewD
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    
+    func renderPostcard(){
+        //Definir zona de trabajo (3000x2400)
+        let drawRect = CGRect(x: 0, y: 0, width: 3000, height: 2400)
+        // crear dos rectangulos para los textos
+        let topRect = CGRect(x: 300, y: 200, width: 2400, height: 800)
+        let bottomRect = CGRect.init(x: 300, y: 1800, width: 2400, height: 400)
+        // a partir de los nombres de fuentes, crear dos objetos fuentes con Aveir Next por defecto
+        let topFont = UIFont(name: self.topFontName, size: 250) ?? UIFont.systemFont(ofSize: 240)
+        let bottomFont = UIFont(name: self.bottomFontName, size: 150) ?? UIFont.systemFont(ofSize: 120)
+        
+        //NSMutableParagraphStylepara centrar texto en rectangulos
+        let centered = NSMutableParagraphStyle()
+        centered.alignment = .center
+        
+        //Definir color y fuentes de la etiqueta
+        let topAttributes : [NSAttributedStringKey : Any] = [.foregroundColor : self.topFontColor, .font : topFont, .paragraphStyle : centered]
+        let bottomAttributes : [NSAttributedStringKey : Any] = [.foregroundColor : self.bottomFontColor, .font : bottomFont, .paragraphStyle : centered]
+        
+        //Iniciar renderizacion de imagen
+        let renderer = UIGraphicsImageRenderer(size: drawRect.size)
+        self.postcardImageView.image = renderer.image(actions: { (context) in
+            //Renderizar la zona con fondo gris
+            UIColor.gray.set()
+            context.fill(drawRect)
+            //Pintar imagen del usuario, solo si hay
+            self.image?.draw(at: CGPoint(x: 0, y: 0))
+            //Cargar los atributos en los rectangulos correspondientes
+            self.topText.draw(in: topRect, withAttributes: topAttributes)
+            self.bottomText.draw(in: bottomRect, withAttributes: bottomAttributes)
+        })
+        
     }
 
 
