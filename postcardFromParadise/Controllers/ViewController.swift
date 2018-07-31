@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDragDelegate {
 
     @IBOutlet weak var postcardImageView: UIImageView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
@@ -34,6 +34,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UITableViewD
         }
         
         self.renderPostcard()
+        self.colorCollectionView.dragDelegate = self
 
     }
 
@@ -62,6 +63,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UITableViewD
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
+    //MARK: Collection View Drag Delegate
+    
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let color = self.colors[indexPath.row]
+        let itemProvider = NSItemProvider(object: color)
+        let item = UIDragItem(itemProvider: itemProvider)
+        return [item]
+    }
+    
+    //MARK: Funciones propias
     
     func renderPostcard(){
         //Definir zona de trabajo (3000x2400)
@@ -93,9 +105,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UITableViewD
             self.topText.draw(in: topRect, withAttributes: topAttributes)
             self.bottomText.draw(in: bottomRect, withAttributes: bottomAttributes)
         })
-        
     }
-
-
 }
 
