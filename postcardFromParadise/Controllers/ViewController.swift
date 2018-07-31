@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDragDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDragDelegate, UIDropInteractionDelegate {
 
     @IBOutlet weak var postcardImageView: UIImageView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
@@ -33,9 +33,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
         }
         
-        self.renderPostcard()
         self.colorCollectionView.dragDelegate = self
-
+        self.postcardImageView.isUserInteractionEnabled = true
+        let dropInteraction = UIDropInteraction(delegate: self)
+        self.postcardImageView.addInteraction(dropInteraction)
+        
+        self.renderPostcard()
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +74,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let itemProvider = NSItemProvider(object: color)
         let item = UIDragItem(itemProvider: itemProvider)
         return [item]
+    }
+    
+    //MARK: Drop Interaction Delegate
+    func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
+        return UIDropProposal(operation: copy() as! UIDropOperation)
     }
     
     //MARK: Funciones propias
