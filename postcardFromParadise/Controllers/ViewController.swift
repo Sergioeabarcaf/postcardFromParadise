@@ -88,6 +88,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let dropLocation = session.location(in: self.postcardImageView)
         //identificar si el objeto soltado es un string (fuentes)
         if session.hasItemsConforming(toTypeIdentifiers: [kUTTypePlainText as String]){
+            //cargar objeto soltado
+            session.loadObjects(ofClass: NSString.self, completion: {items in
+                //si se puede el primer item se puede almacenar de tipo string
+                guard let font = items.first as? String else {return}
+                
+                 //identificar si el objeto fue soltado en la mitad superior o inferior de la pantalla
+                if dropLocation.y < self.postcardImageView.bounds.midY{
+                    self.topFontName = font
+                }
+                else{
+                    self.bottomFontName = font
+                }
+                //Renderizar los cambios realizado
+                self.renderPostcard()
+            })
             
         //identificar si el objeto soltado es una imagen
         }else if session.hasItemsConforming(toTypeIdentifiers: [kUTTypeImage as String]){
