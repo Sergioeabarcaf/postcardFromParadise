@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class FontsTableViewController: UITableViewController {
+class FontsTableViewController: UITableViewController, UITableViewDragDelegate {
     
     let fonts = UIFont.familyNames.sorted()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.dragDelegate = self
 
     }
 
@@ -87,5 +89,21 @@ class FontsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    //MARK : Table View Drag Delegate
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        // obtener el nombre de la fuente por medio del indexPath
+        let fontName = self.fonts[indexPath.row]
+        //si no se puede obtener data usando codificacion utf8 del objeto tomado, se retorna
+        guard let data = fontName.data(using: .utf8) else {return []}
+        //con la data obtenida, se crea un itemProvider pasandole la data como NSData y el identificador con un textoPlano como string
+        let itemProvider = NSItemProvider(item: data as NSData, typeIdentifier: kUTTypePlainText as String)
+        //el item tomado se pasa a protocolo UIDragItem con la data anterior
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        //Se retorna un arreglo con un elemento que contiene la data de la fuente seleccionada
+        return[dragItem]
+    }
+    
 
 }
