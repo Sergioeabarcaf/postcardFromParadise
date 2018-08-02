@@ -79,17 +79,36 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //MARK: Drop Interaction Delegate
     func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
-        return UIDropProposal(operation: copy() as! UIDropOperation)
+        return UIDropProposal(operation: .copy)
     }
     
+    //funcion que se ejecuta cuando ha sido soltado el objeto
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        // obtener posicion donde se ha soltado el objeto
         let dropLocation = session.location(in: self.postcardImageView)
+        //identificar si el objeto soltado es un string (fuentes)
         if session.hasItemsConforming(toTypeIdentifiers: [kUTTypePlainText as String]){
             
+        //identificar si el objeto soltado es una imagen
         }else if session.hasItemsConforming(toTypeIdentifiers: [kUTTypeImage as String]){
             
+        //identificar si el objeto soltado no es ninguno de los anteriores, por lo que es un color
         }else{
-            
+            //cargar objeto en la session de manera asincronica
+            session.loadObjects(ofClass: UIColor.self, completion: {items in
+                //si el primer objeto del arreglo es de tipo UIColor, almacenarlo, sino, salir
+                guard let color = items.first as? UIColor else {return}
+                
+                //identificar si el objeto fue soltado en la mitad superior o inferior de la pantalla
+                if dropLocation.y < self.postcardImageView.bounds.midY{
+                    self.topFontColor = color
+                }
+                else{
+                    self.bottomFontColor = color
+                }
+                //Renderizar los cambios realizado
+                self.renderPostcard()
+            })
         }
     }
     
