@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDragDelegate, UIDropInteractionDelegate {
 
@@ -79,6 +80,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //MARK: Drop Interaction Delegate
     func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
         return UIDropProposal(operation: copy() as! UIDropOperation)
+    }
+    
+    func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        let dropLocation = session.location(in: self.postcardImageView)
+        if session.hasItemsConforming(toTypeIdentifiers: [kUTTypePlainText as String]){
+            
+        }else if session.hasItemsConforming(toTypeIdentifiers: [kUTTypeImage as String]){
+            
+        }else{
+            
+        }
     }
     
     //MARK: Funciones propias
