@@ -49,10 +49,14 @@
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XYL-v0-4pD">
                                 <rect key="frame" x="47" y="221" width="281" height="225"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XYL-v0-4pD" secondAttribute="height" multiplier="1:0.8" id="9bt-Qm-9XF"/>
                                     <constraint firstAttribute="height" constant="225" id="U2Z-02-jAJ"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BAN-N3-iuc" appends="YES" id="PXy-z2-BWm"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,6 +80,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xoi-vb-2P6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BAN-N3-iuc">
+                    <connections>
+                        <action selector="changeText:" destination="tw5-QZ-hUO" id="91O-gN-xLb"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="844" y="460.11994002998506"/>
         </scene>

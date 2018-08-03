@@ -160,5 +160,41 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.bottomText.draw(in: bottomRect, withAttributes: bottomAttributes)
         })
     }
+    
+    //MARK: Gesture Recognizer
+    
+    @IBAction func changeText(_ sender: UITapGestureRecognizer) {
+        //Encontrar la localizacion del tap y decidir si tiene que cambiar el texto de arriba o abajo
+        let changeTop = (sender.location(in: self.postcardImageView).y < self.postcardImageView.bounds.midY) ? true : false
+
+        let alert = UIAlertController(title: "Camabiar texto", message: "Ingrese el nuevo texto", preferredStyle: .alert)
+        alert.addTextField {textField in
+            textField.placeholder = "¿Que quieres colocar aca?"
+            if changeTop{
+                textField.text = self.topText
+            }
+            else{
+                textField.text = self.bottomText
+            }
+        }
+        
+        let changeAction = UIAlertAction(title: "Cambiar texto", style: .default) { action in
+            guard let newText = alert.textFields?[0].text else {return}
+            if changeTop{
+                self.topText = newText
+            }
+            else{
+                self.bottomText = newText
+            }
+            
+            self.renderPostcard()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        alert.addAction(changeAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
+    }
 }
 
