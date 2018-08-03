@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //se ordena al Split View que siempre se muestren los dos Navigation
+        if let splitView = window?.rootViewController as? UISplitViewController{
+            splitView.preferredDisplayMode = .allVisible
+            
+            //se obtiene referencia a la ultima vista del Split View
+            if let navController = splitView.viewControllers.last as? UINavigationController{
+                //Se agrega un boton para cambiar el tipo de vista del navigation, este boton se coloca en la parte izquerda de la barra
+                navController.topViewController?.navigationItem.leftBarButtonItem = splitView.displayModeButtonItem
+            }
+        }
         return true
     }
 
