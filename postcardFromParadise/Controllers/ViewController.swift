@@ -9,7 +9,9 @@
 import UIKit
 import MobileCoreServices
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDragDelegate, UIDropInteractionDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDragDelegate, UIDropInteractionDelegate, UIDragInteractionDelegate {
+    
+    
 
     @IBOutlet weak var postcardImageView: UIImageView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
@@ -38,6 +40,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         self.postcardImageView.isUserInteractionEnabled = true
         let dropInteraction = UIDropInteraction(delegate: self)
         self.postcardImageView.addInteraction(dropInteraction)
+        let dragInteraction  = UIDragInteraction(delegate: self)
+        self.postcardImageView.addInteraction(dragInteraction)
         
         self.renderPostcard()
     }
@@ -106,6 +110,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
         //identificar si el objeto soltado es una imagen
         }else if session.hasItemsConforming(toTypeIdentifiers: [kUTTypeImage as String]){
+            session.loadObjects(ofClass: UIImage.self) { (items) in
+                guard let imagen = items.first as? UIImage else {return}
+                
+                self.image = imagen
+                
+                self.renderPostcard()
+                
+            }
             
         //identificar si el objeto soltado no es ninguno de los anteriores, por lo que es un color
         }else{
@@ -125,6 +137,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 self.renderPostcard()
             })
         }
+    }
+    
+    //MARK: Drag Interaction Delegate
+    func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
+        guard let imagen = self.postcardImageView.image else { return [] }
+        let provider = NSItemProvider(object: imagen)
+        let item = UIDragItem(itemProvider: provider)
+        
+        return [item]
     }
     
     //MARK: Funciones propias
