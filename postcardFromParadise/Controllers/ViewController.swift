@@ -43,6 +43,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let dragInteraction  = UIDragInteraction(delegate: self)
         self.postcardImageView.addInteraction(dragInteraction)
         
+        self.title = "Postales desde el paraiso"
+        self.splitViewController?.view.backgroundColor = UIColor.lightGray
+        
         self.renderPostcard()
     }
 
@@ -112,9 +115,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }else if session.hasItemsConforming(toTypeIdentifiers: [kUTTypeImage as String]){
             session.loadObjects(ofClass: UIImage.self) { (items) in
                 guard let imagen = items.first as? UIImage else {return}
-                
                 self.image = imagen
-                
                 self.renderPostcard()
                 
             }
