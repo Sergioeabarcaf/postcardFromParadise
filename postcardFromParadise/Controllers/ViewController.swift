@@ -175,8 +175,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             //Renderizar la zona con fondo gris
             UIColor.gray.set()
             context.fill(drawRect)
-            //Pintar imagen del usuario, solo si hay
-            self.image?.draw(at: CGPoint(x: 0, y: 0))
+            //Pintar imagen del usuario, solo si hay, utilizando todo el ancho del drawRect
+            self.image?.draw(in: drawRect)
             //Cargar los atributos en los rectangulos correspondientes
             self.topText.draw(in: topRect, withAttributes: topAttributes)
             self.bottomText.draw(in: bottomRect, withAttributes: bottomAttributes)
