@@ -15,6 +15,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     @IBOutlet weak var postcardImageView: UIImageView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
+    @IBOutlet weak var imagenCollectionView: UICollectionView!
     
     var colors = [UIColor]()
     var image : UIImage?
@@ -54,7 +55,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: Collection View Data Source
+    // MARK: Color Collection View Data Source
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.colors.count
@@ -74,6 +75,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
+    //MARK: Imagen Collection View Data Source
+    
+    
     
     //MARK: Collection View Drag Delegate
     
