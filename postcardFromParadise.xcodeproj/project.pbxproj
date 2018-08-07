@@ -13,6 +13,7 @@
 		062782BB21089D740066DC28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 062782BA21089D740066DC28 /* Assets.xcassets */; };
 		062782BE21089D740066DC28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 062782BC21089D740066DC28 /* LaunchScreen.storyboard */; };
 		062782C621089E680066DC28 /* FontsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062782C521089E680066DC28 /* FontsTableViewController.swift */; };
+		062BE5A82119BC5600C545A7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 062BE5A62119BC5600C545A7 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		062782BD21089D740066DC28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		062782BF21089D740066DC28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		062782C521089E680066DC28 /* FontsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsTableViewController.swift; sourceTree = "<group>"; };
+		062BE5A72119BC5600C545A7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				062782BA21089D740066DC28 /* Assets.xcassets */,
 				062782BC21089D740066DC28 /* LaunchScreen.storyboard */,
 				062782BF21089D740066DC28 /* Info.plist */,
+				062BE5A62119BC5600C545A7 /* Model.xcdatamodeld */,
 			);
 			path = postcardFromParadise;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				062782B621089D720066DC28 /* ViewController.swift in Sources */,
 				062782C621089E680066DC28 /* FontsTableViewController.swift in Sources */,
 				062782B421089D720066DC28 /* AppDelegate.swift in Sources */,
+				062BE5A82119BC5600C545A7 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +350,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		062BE5A62119BC5600C545A7 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				062BE5A72119BC5600C545A7 /* Model.xcdatamodel */,
+			);
+			currentVersion = 062BE5A72119BC5600C545A7 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 062782A821089D720066DC28 /* Project object */;
 }

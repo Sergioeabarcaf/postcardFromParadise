@@ -8,16 +8,18 @@
 
 import UIKit
 import MobileCoreServices
+import CoreData
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDragDelegate, UIDropInteractionDelegate, UIDragInteractionDelegate {
     
     
-
     @IBOutlet weak var postcardImageView: UIImageView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
     @IBOutlet weak var imagenCollectionView: UICollectionView!
     
+    
     var colors = [UIColor]()
+    var imagen = [NSManagedObject]()
     var image : UIImage?
     var topText = "Bienvenido a iOS 11"
     var bottomText = "El mejor curso lanzado a la fecha."

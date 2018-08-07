@@ -69,6 +69,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="tw5-QZ-hUO" id="USU-mp-7Sp"/>
+                                    <outlet property="delegate" destination="tw5-QZ-hUO" id="lgi-mD-BRM"/>
+                                </connections>
                             </collectionView>
                             <imageView verifyAmbiguity="ignoreSizes" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XYL-v0-4pD">
                                 <rect key="frame" x="47" y="221" width="281" height="225"/>
@@ -105,7 +109,6 @@
                         <outlet property="colorCollectionView" destination="j6A-e9-iMe" id="XFs-iM-omR"/>
                         <outlet property="imagenCollectionView" destination="z8w-TF-0Rg" id="3Yh-QX-Asf"/>
                         <outlet property="postcardImageView" destination="XYL-v0-4pD" id="kGh-0m-x8I"/>
-                        <outletCollection property="imagenCollectionView" destination="z8w-TF-0Rg" collectionClass="NSMutableArray" id="2mS-8N-Bf1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xoi-vb-2P6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -115,7 +118,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="844" y="460.11994002998506"/>
+            <point key="canvasLocation" x="857" y="592"/>
         </scene>
         <!--Fuentes disponibles-->
         <scene sceneID="AWT-dy-oNd">
@@ -200,7 +203,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlM-eZ-09p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-95.200000000000003" y="460.11994002998506"/>
+            <point key="canvasLocation" x="-96" y="592"/>
         </scene>
     </scenes>
 </document>
